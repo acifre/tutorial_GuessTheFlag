@@ -10,14 +10,21 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         NavigationView {
-            VStack {
-                Image(systemName: "globe")
-                    .imageScale(.large)
-                    .foregroundColor(.accentColor)
-                Text("Hello, world!")
-            }
-            .padding()
-            .navigationTitle("GuessTheFlag")
+
+            
+                ZStack {
+                    VStack(spacing: 0) {
+                        Color.red
+                        Color.blue
+                    }
+
+                    Text("Your content")
+                        .foregroundColor(.secondary)
+                        .padding(50)
+                        .background(.ultraThinMaterial)
+                }
+                .ignoresSafeArea()
+                .navigationTitle("GuessTheFlag")
         }
     }
 }
