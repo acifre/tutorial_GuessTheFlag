@@ -14,18 +14,10 @@ struct ContentView: View {
     @State private var alertMessage = ""
     @State private var score = 0
     @State private var numberOfTurns = 0
-    
-    
-    
     @State private var countries = ["Estonia", "US", "Spain", "Ireland", "France", "Russia", "Italy", "UK", "Nigeria", "Monaco", "Germany", "Poland"]
-    
     @State private var correctAnswer = Int.random(in: 0...2)
     
     let correctMessages = ["Great job!", "You're a pro!", "You know your stuff...", "Keep it up!"]
-    
-    var countryToGuess: String? {
-        return countries.randomElement() ?? "US"
-    }
     
     var body: some View {
         NavigationView {
@@ -33,7 +25,8 @@ struct ContentView: View {
             ZStack {
                 
                 RadialGradient(stops: [
-                    .init(color: Color(red: 0.1, green: 0.2, blue: 0.45), location: 0.3),
+                    .init(
+                        color: Color(red: 0.1, green: 0.2, blue: 0.45), location: 0.3),
                     .init(color: Color(red: 0.76, green: 0.15, blue: 0.26), location: 0.3),
                 ], center: .top, startRadius: 200, endRadius: 400)
                 .ignoresSafeArea()
@@ -88,9 +81,9 @@ struct ContentView: View {
                 } message: {
                     
                     if numberOfTurns < 8 {
-                        Text("\(alertMessage)\n\(score) / \(numberOfTurns) correct!")
+                        Text("\n\(alertMessage)\n\n\(score) / \(numberOfTurns) correct")
                     } else {
-                        Text("Game Over\nYou got \(score) / \(numberOfTurns) correct!")
+                        Text("\nGame Over\n\nYou got \(score) / \(numberOfTurns) correct!")
                     }
                     
                 }
