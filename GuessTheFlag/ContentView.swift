@@ -34,8 +34,8 @@ struct ContentView: View {
                 VStack {
                     Spacer()
                     Text("Guess the Flag")
-                            .font(.largeTitle.bold())
-                            .foregroundColor(.white)
+                        .font(.largeTitle.bold())
+                        .foregroundColor(.white)
                     Spacer()
                     VStack(spacing: 15) {
                         
@@ -43,7 +43,7 @@ struct ContentView: View {
                             Text("Tap the flag of")
                                 .foregroundStyle(.secondary)
                                 .font(.subheadline.weight(.heavy))
-                                
+                            
                             Text(countries[correctAnswer])
                                 .foregroundColor(.white)
                                 .font(.largeTitle.weight(.semibold))
@@ -54,10 +54,8 @@ struct ContentView: View {
                             Button {
                                 flagTapped(number)
                             } label: {
-                                Image(countries[number])
-                                    .renderingMode(.original)
-                                    .clipShape(RoundedRectangle(cornerRadius: 30))
-                                    .shadow(radius: 5)
+                                FlagImage(imageName: countries[number])
+
                             }
                         }
                         
@@ -72,8 +70,8 @@ struct ContentView: View {
                         .foregroundColor(.white)
                         .font(.title.bold())
                     Spacer()
-
-
+                    
+                    
                 }
                 .padding()
                 .alert("\(scoreTitle)", isPresented: $showAlert) {
@@ -120,4 +118,19 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
             .preferredColorScheme(.dark)
     }
+}
+
+struct FlagImage: View {
+    var imageName: String
+    
+    var body: some View {
+        
+        Image(imageName)
+            .renderingMode(.original)
+            .clipShape(RoundedRectangle(cornerRadius: 30))
+            .shadow(radius: 5)
+        
+    }
+    
+    
 }
